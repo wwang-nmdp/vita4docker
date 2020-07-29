@@ -82,49 +82,7 @@ unzip cds.db.zip
 ```
 Copy the database into your working directory.
 
-# Run ViTA
 
-```unix
-java -jar ViTA-1.0.jar -h
-A typical command line would be:   java -jar vita.jar -i /path/to/myVariants.vcf -hla A02:01,B07:02,C04:02 -w -t /path/to/workingDirectory/Tools -o /path/to/output
-Commands:
-   -i,     Multiple or single variant input file
-           input file should be a tab-delimited format, regardless of the file extensions.
-
-   -pos,   Position of variants at chromosome coordinate
-           simply input the chromosome coordinate. e.g. -pos chr11:5227002
-           Be cautious, the position format have to be 1-based
-           Please follow the instruction of UCSC genome browser for details of coordinate system: 
-               http://genome.ucsc.edu/blog/the-ucsc-genome-browser-coordinate-counting-systems/
-           It can only take either -i or -pos as input for each process
-
-   -hla,   List of HLA alleles you wish to access immunogenicities
-           HLA allele should be 4-digit resolution with one upper-case allele type followed by 4 numbers.
-               e.g. A01:01
-           Multiple allele input are allowed by comma-delimited format
-               e.g. A0101,A,2001,A0301,B0702
-           Depends on the number of CPUs and disk writing speed, multiple allele input could significantly reduce the predictions
-   -t,     Tell the program where are the dependency tools
-           Set the path to netChop and netMHCpan
-           You might also need to set the PATH for the dependencies:
-               export TMPDIR=/path/to/Tools/netMHCpan-3.0/tmp
-               export TMPDIR=/path/to/Tools/netchop-3.1/tmp
-               export NETCHOP=/path/to/Tools/netchop-3.1/
-               export NETMHCpan=/path/to/Tools/netMHCpan-3.0
-
-   -w,    
-           To activate the slidingWindow function for chopping out all possible variant-containing 8- to 11- mer
-           Otherwise the program goes netChop as default
-   -o,     Set a directory to store the output
-              e.g. /path/to/test/output
-          
-
-Miscellaneous:
-   -v,     Print current version information and exit
-   -h,     Print this help and exit
-
-#check options of the application and test with sample data
-```
 # References:
 [1]   Meier, R.P., et al. Xenotransplantation: back to the future?. Transplant International, 2018.31(5): p.465-477.
 
